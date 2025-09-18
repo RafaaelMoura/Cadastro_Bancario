@@ -2,11 +2,17 @@ package com.example.demo.Missoes;
 
 import com.example.demo.Ninjas.Controller.Service.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Entity
 @Table (name = "tb_missoes")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class MissaoModel {
 
     @Id
@@ -15,33 +21,8 @@ public class MissaoModel {
     private String nome;
     private String nivel;
 
-
     @OneToMany(mappedBy = "missoes") //Annotation que representa uma missão para varios ninjas
-  private List<NinjaModel> ninjas;
+    private List<NinjaModel> ninjas;
 
 
-
-    public MissaoModel() {
-    }
-
-    public MissaoModel(String nome, String nivel) {
-        this.nome = nome;
-        this.nivel = nivel;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getNivel() {
-        return nivel;
-    }
-
-    public void setNivel(String nivel) {
-        this.nivel = nivel;
-    }
 }
