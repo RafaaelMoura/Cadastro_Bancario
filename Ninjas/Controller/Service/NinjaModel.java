@@ -19,6 +19,7 @@ public class NinjaModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Cria a ordenação da geração dos id's *IDENTITY - cria uma ordenação numerica 1,2,3 ...
     private long id;
     private String nome;
+    @Column(unique = true) // Colunm: especifica coluna no caso "coluna email" | (unique = true) Indica que as informações são unicas
     private String emaii;
     private int idade;
 
