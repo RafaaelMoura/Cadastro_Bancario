@@ -1,7 +1,7 @@
-package com.example.demo;
+package com.example.demo.Ninjas.Controller.Service;
 
+import com.example.demo.Missoes.MissaoModel;
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
 @Entity //Trasforma uma classe em uma entidade (ou tabela) - JPA - JAVA PERSISTENCE API
 @Table(name = "tb_tabela") /*Nome a entidade (tabela) criada atráves do @Entity (boa pratica utilizar o nome com *tb* e separado por _
@@ -14,6 +14,10 @@ public class NinjaModel {
     private String nome;
     private String emaii;
     private int idade;
+
+    @ManyToOne // Essa annotation representa que muitos ninjas podem ter uma missão
+    @JoinColumn(name = "missoes_id") // Foreing Key ou Chave estrangeira
+    private MissaoModel missoes;
 
     public NinjaModel() {
     }
