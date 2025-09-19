@@ -17,10 +17,20 @@ public class NinjaModel {
 
     @Id //Para preencher os id's dos elementos
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Cria a ordenação da geração dos id's *IDENTITY - cria uma ordenação numerica 1,2,3 ...
+
+    @Column(name = "id")
     private long id;
+
+    @Column(name = "nome")
     private String nome;
+
     @Column(unique = true) // Colunm: especifica coluna no caso "coluna email" | (unique = true) Indica que as informações são unicas
     private String emaii;
+
+    @Column(name = "img_url")
+    private String imgUrl;
+
+    @Column(name = "idade")
     private int idade;
 
     @ManyToOne // Essa annotation representa que muitos ninjas podem ter uma missão
